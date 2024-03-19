@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoes_store/core/utlis/routes.dart';
+import 'package:shoes_store/core/widgets/buttons.dart';
 import 'package:shoes_store/features/intro/presentation/views/widgets/page_one.dart';
 import 'package:shoes_store/features/intro/presentation/views/widgets/page_three.dart';
 import 'package:shoes_store/features/intro/presentation/views/widgets/page_two.dart';
@@ -45,13 +47,14 @@ class _IntroViewState extends State<IntroView> {
                   dotColor: Color(0xffFFB21A),
                   activeDotColor: Colors.white)),
         ),
-        ButtonActions(lastPage: lastPage, controller: controller, firstPage: firstPage),
+        ButtonActions(
+            lastPage: lastPage, controller: controller, firstPage: firstPage),
       ],
     ));
   }
 
   void ToTrackPages(int index) {
-       if (index == 1 || index == 2) {
+    if (index == 1 || index == 2) {
       firstPage = false;
       setState(() {});
     } else {
@@ -65,64 +68,3 @@ class _IntroViewState extends State<IntroView> {
   }
 }
 
-class ButtonActions extends StatelessWidget {
-  const ButtonActions({
-    super.key,
-    required this.lastPage,
-    required this.controller,
-    required this.firstPage,
-  });
-
-  final bool lastPage;
-  final PageController controller;
-  final bool firstPage;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-          child: GestureDetector(
-            onTap: lastPage
-                ? ()  {
-                  
-                    GoRouter.of(context).push(Routers.kLogin);
-                  }
-                : () {
-                    controller.nextPage(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeIn);
-                  },
-            child: Container(
-                alignment: Alignment.bottomCenter,
-                height: 50,
-                decoration: BoxDecoration(
-                    color: const Color(0xffECECEC),
-                    borderRadius: BorderRadius.circular(12)),
-                child: Center(
-                  child: firstPage
-                      ? const Text(
-                          'Get Started',
-                          style: TextStyle(
-                              color: Color(0xff2B2B2B),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: 'Raleway'),
-                        )
-                      : const Text(
-                          'Next',
-                          style: TextStyle(
-                              color: Color(0xff2B2B2B),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: 'Raleway'),
-                        ),
-                )),
-          ),
-        ),
-      ],
-    );
-  }
-}

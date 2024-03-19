@@ -55,8 +55,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
     Future.delayed(
       Duration(seconds: 2),
-      () {
-        GoRouter.of(context).push(Routers.introduction);
+      () async {
+        final SharedPreferences prefs =
+                   await SharedPreferences.getInstance();
+              bool skipIntro= prefs.getBool('skipIntro')??false;
+       skipIntro ? GoRouter.of(context).push(Routers.kLogin) : GoRouter.of(context).push(Routers.introduction);
       },
     );
   }
