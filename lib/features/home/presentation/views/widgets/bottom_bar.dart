@@ -1,7 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shoes_store/core/utlis/routes.dart';
+import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
 import 'package:shoes_store/features/home/presentation/views/home_view.dart';
 
 class BottomBar extends StatefulWidget {
@@ -32,9 +34,7 @@ class _BottomBarState extends State<BottomBar> {
             }
             setState(() {});
           }
-          if (value == 1) {
-            GoRouter.of(context).push(Routers.kfavourite);
-          }
+          BlocProvider.of<HomeCubit>(context).getpage(value);
         },
         items: [
           isChoose[0]

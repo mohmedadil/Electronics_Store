@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shoes_store/features/authintication/login/presentation/views/login_view.dart';
 import 'package:shoes_store/features/authintication/recovery/presentation/views/recovery_view.dart';
 import 'package:shoes_store/features/authintication/recovery/presentation/views/verification_view.dart';
 import 'package:shoes_store/features/authintication/register/presentation/views/register_view.dart';
+import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
 import 'package:shoes_store/features/home/presentation/views/favourite_view.dart';
 import 'package:shoes_store/features/home/presentation/views/home_view.dart';
 import 'package:shoes_store/features/intro/presentation/views/intro.dart';
@@ -20,8 +22,7 @@ abstract class Routers {
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) =>
-          HomeView(),
+      builder: (context, state) => HomeView(),
     ),
     GoRoute(
       path: introduction,
@@ -45,10 +46,9 @@ abstract class Routers {
     ),
     GoRoute(
       path: khome,
-      builder: (context, state) =>
-          HomeView(),
+      builder: (context, state) => HomeView(),
     ),
-     GoRoute(
+    GoRoute(
       path: kfavourite,
       builder: (context, state) => const FavouriteView(),
     ),
