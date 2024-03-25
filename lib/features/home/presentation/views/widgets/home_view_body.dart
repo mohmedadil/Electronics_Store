@@ -13,27 +13,30 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          CustomAppbar(
-            onTap: () {
-              Scaffold.of(context).openDrawer();
-            },
-          ),
-          const SearchSection(),
-          const SizedBox(
-            height: 26,
-          ),
-          const CategorySection(),
-          const SizedBox(
-            height: 24,
-          ),
-          const PopularSection(),
-          const SizedBox(
-            height: 24,
-          ),
-          const NewArrivalsSection(),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+        child: Column(
+          children: [
+            CustomAppbar(
+              onTap: () {
+                Scaffold.of(context).openDrawer();
+              },
+            ),
+            const SearchSection(),
+            const SizedBox(
+              height: 26,
+            ),
+            const CategorySection(),
+            const SizedBox(
+              height: 24,
+            ),
+            const PopularSection(),
+            const SizedBox(
+              height: 24,
+            ),
+            const NewArrivalsSection(),
+          ],
+        ),
       ),
     );
   }
