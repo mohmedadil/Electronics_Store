@@ -49,14 +49,17 @@ class CartView extends StatelessWidget {
         const SliverToBoxAdapter(
           child: CartListView(),
         ),
-      const  SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: Padding(
-            padding:  EdgeInsets.only(top: 20, bottom: 20),
+            padding: EdgeInsets.only(top: 20, bottom: 20),
             child: CartDetailsBox(),
           ),
-        )
+        ),
+        const SliverToBoxAdapter(
+            child: SizedBox(
+          height: 30,
+        ))
       ],
     );
   }
 }
-

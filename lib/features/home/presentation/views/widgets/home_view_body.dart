@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoes_store/features/home/presentation/controler/provider/model.dart';
 import 'package:shoes_store/features/home/presentation/views/widgets/category_section.dart';
 import 'package:shoes_store/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:shoes_store/features/home/presentation/views/widgets/newarrival_section.dart';
@@ -6,7 +8,7 @@ import 'package:shoes_store/features/home/presentation/views/widgets/popular_sec
 import 'package:shoes_store/features/home/presentation/views/widgets/search_section.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({
+  HomeViewBody({
     super.key,
   });
 
@@ -22,11 +24,13 @@ class HomeViewBody extends StatelessWidget {
                 Scaffold.of(context).openDrawer();
               },
             ),
-            const SearchSection(),
+           const SearchSection(),
             const SizedBox(
               height: 26,
             ),
-            const CategorySection(),
+            Selector<Mystate, bool>(
+                selector: (context, value) => value.isSelected,
+                builder: (context, value, child) =>const CategorySection()),
             const SizedBox(
               height: 24,
             ),

@@ -20,10 +20,10 @@ class _CartBoxState extends State<CartBox> {
   @override
   Widget build(BuildContext context) {
     return Slidable(
-      startActionPane: ActionPane(motion: StretchMotion(), children: [
+      startActionPane: ActionPane(motion: const StretchMotion(), children: [
         Expanded(
           child: Container(
-            decoration: BoxDecoration(color: Color(0xff0D6EFD)),
+            decoration: const BoxDecoration(color: Color(0xff0D6EFD)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -34,17 +34,17 @@ class _CartBoxState extends State<CartBox> {
                       setState(() {});
                     }
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.add,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
                   count.toString(),
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -53,7 +53,7 @@ class _CartBoxState extends State<CartBox> {
                       setState(() {});
                     }
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.minimize,
                     color: Colors.white,
                   ),

@@ -6,8 +6,8 @@ import 'package:shoes_store/features/authintication/recovery/presentation/views/
 import 'package:shoes_store/features/authintication/recovery/presentation/views/verification_view.dart';
 import 'package:shoes_store/features/authintication/register/presentation/views/register_view.dart';
 import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
-import 'package:shoes_store/features/home/presentation/views/favourite_view.dart';
-import 'package:shoes_store/features/home/presentation/views/home_view.dart';
+import 'package:shoes_store/features/home/presentation/views/screens/favourite_view.dart';
+import 'package:shoes_store/features/home/presentation/views/screens/home_view.dart';
 import 'package:shoes_store/features/intro/presentation/views/intro.dart';
 import 'package:shoes_store/features/splash/presntation/view/splash_view.dart';
 

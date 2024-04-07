@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoes_store/features/home/presentation/controler/provider/model.dart';
 
-class SearchSection extends StatelessWidget {
+class SearchSection extends StatefulWidget {
   const SearchSection({
     super.key,
   });
 
   @override
+  State<SearchSection> createState() => _SearchSectionState();
+}
+
+class _SearchSectionState extends State<SearchSection> {
+  @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<Mystate>(context, listen: false);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -47,15 +55,29 @@ class SearchSection extends StatelessWidget {
           width: 16,
         ),
         IconButton(
-          onPressed: () {},
-          icon: const CircleAvatar(
-            backgroundColor: Color(0xff0D6EFD),
-            radius: 25,
-            child: Icon(
-              Icons.tune,
-              color: Colors.white,
-            ),
-          ),
+          onPressed: () {
+            provider.isSelected
+                ? provider.setisSelected(false)
+                : provider.setisSelected(true);
+            setState(() {});
+          },
+          icon: provider.isSelected
+              ? const CircleAvatar(
+                  backgroundColor: Color(0xff0D6EFD),
+                  radius: 25,
+                  child: Icon(
+                    Icons.tune,
+                    color: Colors.white,
+                  ),
+                )
+              : const CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 25,
+                  child: Icon(
+                    Icons.tune,
+                    color: Colors.black,
+                  ),
+                ),
         )
       ],
     );

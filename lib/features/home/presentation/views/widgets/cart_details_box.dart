@@ -15,7 +15,7 @@ class CartDetailsBox extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.3,
       decoration: const BoxDecoration(color: Colors.white),
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
         child: Column(children: [
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,7 +65,11 @@ class CartDetailsBox extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          const ButtonAction(color: Color(0xff0D6EFD), text: 'CheckOut')
+          ButtonAction(
+            color: const Color(0xff0D6EFD),
+            text: 'CheckOut',
+            onTap: () {},
+          )
         ]),
       ),
     );
