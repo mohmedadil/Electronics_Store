@@ -115,7 +115,9 @@ class ButtonActionWithIcon extends StatelessWidget {
     required this.color,
     this.textColor,
     required this.text,
+    required this.icon,
   });
+  final String icon;
   final Color color;
   final Color? textColor;
   final String text;
@@ -137,9 +139,10 @@ class ButtonActionWithIcon extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'asset/images/google.png',
+                      icon,
                       cacheHeight: 22,
                       cacheWidth: 22,
+                      color: Colors.white,
                     ),
                     SizedBox(
                       width: 14,

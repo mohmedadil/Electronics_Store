@@ -12,7 +12,7 @@ class PopularBox extends StatelessWidget {
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.29,
         child: AspectRatio(
-          aspectRatio: 2.9 / 3.8,
+          aspectRatio: 2.5 / 3.8,
           child: Container(
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(12)),

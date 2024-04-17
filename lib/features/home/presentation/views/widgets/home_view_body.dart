@@ -15,6 +15,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
       child: Padding(
         padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
@@ -24,13 +25,13 @@ class HomeViewBody extends StatelessWidget {
                 Scaffold.of(context).openDrawer();
               },
             ),
-           const SearchSection(),
+            const SearchSection(),
             const SizedBox(
               height: 26,
             ),
             Selector<Mystate, bool>(
                 selector: (context, value) => value.isSelected,
-                builder: (context, value, child) =>const CategorySection()),
+                builder: (context, value, child) => const CategorySection()),
             const SizedBox(
               height: 24,
             ),

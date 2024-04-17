@@ -186,6 +186,7 @@ class _RegisterViewState extends State<RegisterView> {
                         height: 24,
                       ),
                       const ButtonActionWithIcon(
+                        icon: 'asset/images/google.png',
                         color: Color(0xffF7F7F9),
                         text: 'Sign up with Google',
                         textColor: Colors.black,

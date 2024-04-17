@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:shoes_store/constat.dart';
-import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
 import 'package:shoes_store/features/home/presentation/controler/provider/model.dart';
 import 'package:shoes_store/features/home/presentation/views/widgets/bottom_bar.dart';
 import 'package:shoes_store/features/home/presentation/views/widgets/menu.dart';

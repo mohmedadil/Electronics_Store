@@ -6,6 +6,7 @@ import 'package:shoes_store/features/authintication/recovery/presentation/views/
 import 'package:shoes_store/features/authintication/recovery/presentation/views/verification_view.dart';
 import 'package:shoes_store/features/authintication/register/presentation/views/register_view.dart';
 import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
+import 'package:shoes_store/features/home/presentation/views/screens/details_view.dart';
 import 'package:shoes_store/features/home/presentation/views/screens/favourite_view.dart';
 import 'package:shoes_store/features/home/presentation/views/screens/home_view.dart';
 import 'package:shoes_store/features/intro/presentation/views/intro.dart';
@@ -19,6 +20,7 @@ abstract class Routers {
   static const kverify = '/verify';
   static const khome = '/home';
   static const kfavourite = '/favourite';
+  static const kdetials = '/detials';
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -51,6 +53,10 @@ abstract class Routers {
     GoRoute(
       path: kfavourite,
       builder: (context, state) => const FavouriteView(),
+    ),
+    GoRoute(
+      path: kdetials,
+      builder: (context, state) => const DetailsView(),
     ),
   ]);
 }

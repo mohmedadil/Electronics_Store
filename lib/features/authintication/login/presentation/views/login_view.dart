@@ -166,6 +166,7 @@ class _LoginViewState extends State<LoginView> {
                         height: 24,
                       ),
                       const ButtonActionWithIcon(
+                        icon: 'asset/images/google.png',
                         color: Color(0xffF7F7F9),
                         text: 'Sign in with Google',
                         textColor: Colors.black,
