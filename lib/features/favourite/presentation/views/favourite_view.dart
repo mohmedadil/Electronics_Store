@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shoes_store/constat.dart';
 import 'package:shoes_store/core/utlis/styles.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/favouriteGridView.dart';
+import 'package:shoes_store/features/favourite/presentation/views/widgets/favouriteGridView.dart';
 
 class FavouriteView extends StatelessWidget {
   const FavouriteView({super.key});

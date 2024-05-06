@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoes_store/constat.dart';
+import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
 import 'package:shoes_store/features/home/presentation/views/widgets/category_box.dart';
 
 class CategoryListView extends StatefulWidget {
@@ -24,6 +26,12 @@ class _CategoryListViewState extends State<CategoryListView> {
               onTap: () {
                 setState(() {
                   count = index;
+                  if (index == 0) {
+                    BlocProvider.of<HomeCubit>(context).getshoes('shoes');
+                  } else {
+                    BlocProvider.of<HomeCubit>(context)
+                        .getshoes(category[index] + 'shoes');
+                  }
                 });
               },
               child: CategoryBox(

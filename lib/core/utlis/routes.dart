@@ -4,9 +4,10 @@ import 'package:shoes_store/features/authintication/login/presentation/views/log
 import 'package:shoes_store/features/authintication/recovery/presentation/views/recovery_view.dart';
 import 'package:shoes_store/features/authintication/recovery/presentation/views/verification_view.dart';
 import 'package:shoes_store/features/authintication/register/presentation/views/register_view.dart';
+import 'package:shoes_store/core/model/shoes_model.dart';
 import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
 import 'package:shoes_store/features/home/presentation/views/screens/details_view.dart';
-import 'package:shoes_store/features/home/presentation/views/screens/favourite_view.dart';
+import 'package:shoes_store/features/favourite/presentation/views/favourite_view.dart';
 import 'package:shoes_store/features/home/presentation/views/screens/home_view.dart';
 import 'package:shoes_store/features/home/presentation/views/screens/searchView.dart';
 import 'package:shoes_store/features/intro/presentation/views/intro.dart';
@@ -63,7 +64,7 @@ abstract class Routers {
     ),
     GoRoute(
       path: kdetials,
-      builder: (context, state) => const DetailsView(),
+      builder: (context, state) =>  DetailsView(shoes: state.extra as ShoesModel,),
     ),
   ]);
 }

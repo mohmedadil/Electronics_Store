@@ -1,8 +1,17 @@
-class ShoesModel {
+import 'package:hive/hive.dart';
+part 'shoes_model.g.dart';
+
+@HiveType(typeId: 0)
+class ShoesModel extends HiveObject {
+  @HiveField(0)
   String? id;
+  @HiveField(1)
   String? name;
+  @HiveField(2)
   dynamic price;
+  @HiveField(3)
   List<dynamic>? image;
+  @HiveField(4)
   String? description;
 
   ShoesModel({this.id, this.name, this.price, this.description, this.image});

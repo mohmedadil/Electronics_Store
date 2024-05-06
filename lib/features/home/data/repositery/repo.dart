@@ -1,4 +1,4 @@
-import 'package:shoes_store/features/home/data/model/model.dart';
+import 'package:shoes_store/core/model/shoes_model.dart';
 import 'package:shoes_store/features/home/data/webservices/api_services.dart';
 
 class Repositery {

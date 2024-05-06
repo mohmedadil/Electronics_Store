@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shoes_store/features/home/data/model/model.dart';
+import 'package:shoes_store/core/model/shoes_model.dart';
 
 class PopularBox extends StatelessWidget {
   const PopularBox({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/favourite_box.dart';
+import 'package:shoes_store/features/favourite/presentation/views/widgets/favourite_box.dart';
 
 class FavouriteGridView extends StatelessWidget {
   const FavouriteGridView({

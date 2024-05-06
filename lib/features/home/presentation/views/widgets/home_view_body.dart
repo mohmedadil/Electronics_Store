@@ -27,44 +27,35 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        if (state is HomeSuccess) {
-          return SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-              child: Column(
-                children: [
-                  CustomAppbar(
-                    onTap: () {
-                      Scaffold.of(context).openDrawer();
-                    },
-                  ),
-                  const SearchSection(),
-                  const SizedBox(
-                    height: 26,
-                  ),
-                  Selector<Mystate, bool>(
-                      selector: (context, value) => value.isSelected,
-                      builder: (context, value, child) =>
-                          const CategorySection()),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  PopularSection(shoes: state.shoes,),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  const NewArrivalsSection(),
-                ],
-              ),
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+        child: Column(
+          children: [
+            CustomAppbar(
+              onTap: () {
+                Scaffold.of(context).openDrawer();
+              },
             ),
-          );
-        } else {
-          return Center(child: CircularProgressIndicator());
-        }
-      },
+            const SearchSection(),
+            const SizedBox(
+              height: 26,
+            ),
+            Selector<Mystate, bool>(
+                selector: (context, value) => value.isSelected,
+                builder: (context, value, child) => const CategorySection()),
+            const SizedBox(
+              height: 24,
+            ),
+            PopularSection(),
+            const SizedBox(
+              height: 24,
+            ),
+            const NewArrivalsSection(),
+          ],
+        ),
+      ),
     );
   }
 }

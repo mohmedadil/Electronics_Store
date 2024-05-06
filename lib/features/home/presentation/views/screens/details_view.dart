@@ -6,10 +6,17 @@ import 'package:go_router/go_router.dart';
 import 'package:shoes_store/constat.dart';
 import 'package:shoes_store/core/utlis/styles.dart';
 import 'package:shoes_store/core/widgets/buttons.dart';
+import 'package:shoes_store/core/model/shoes_model.dart';
 
-class DetailsView extends StatelessWidget {
-  const DetailsView({super.key});
+class DetailsView extends StatefulWidget {
+  const DetailsView({super.key, required this.shoes});
+  final ShoesModel shoes;
 
+  @override
+  State<DetailsView> createState() => _DetailsViewState();
+}
+
+class _DetailsViewState extends State<DetailsView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,19 +24,28 @@ class DetailsView extends StatelessWidget {
         backgroundColor: kBackgroundColor,
         body: Column(
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.89,
-              child: const CustomScrollView(
-                slivers: [
-                  SliverToBoxAdapter(
-                    child: ShoesDetails(),
-                  ),
-                  DetailsListView(),
-                  BoxOfMoreDetails()
-                ],
+            Expanded(
+              child: Container(
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: ShoesDetails(
+                        shoes: widget.shoes,
+                      ),
+                    ),
+                    DetailsListView(
+                      images: widget.shoes.image ?? [],
+                    ),
+                    BoxOfMoreDetails(
+                      description: widget.shoes.description ?? "",
+                    )
+                  ],
+                ),
               ),
             ),
-            DetailsAction(),
+            SizedBox(
+                height: MediaQuery.of(context).size.height * 0.12,
+                child: const DetailsAction()),
           ],
         ),
       ),
@@ -48,34 +64,56 @@ class DetailsAction extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        CircleAvatar(
-            radius: 25,
-            backgroundColor: Color(0xffD9D9D9),
-            child: Container(
-              width: 20,
-              height: 20,
-              child: Image.asset(
-                'asset/images/heart.png',
-                fit: BoxFit.fill,
+        Column(
+          children: [
+            Spacer(),
+            CircleAvatar(
+                radius: 25,
+                backgroundColor: const Color(0xffD9D9D9),
+                child: Container(
+                  width: 20,
+                  height: 20,
+                  child: Image.asset(
+                    'asset/images/heart.png',
+                    fit: BoxFit.fill,
+                  ),
+                )),
+            Spacer(),
+          ],
+        ),
+        Column(
+          children: [
+            Spacer(),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.5,
+              child: const ButtonActionWithIcon(
+                icon: 'asset/images/bag-2.png',
+                text: 'Add to Cart',
+                color: Color(0xff0D6EFD),
               ),
-            )),
-        Container(
-          width: 208,
-          child: ButtonActionWithIcon(
-            icon: 'asset/images/bag-2.png',
-            text: 'Add to Cart',
-            color: Color(0xff0D6EFD),
-          ),
+            ),
+            Spacer()
+          ],
         ),
       ],
     );
   }
 }
 
-class BoxOfMoreDetails extends StatelessWidget {
+class BoxOfMoreDetails extends StatefulWidget {
   const BoxOfMoreDetails({
     super.key,
+    required this.description,
   });
+  final String description;
+  @override
+  State<BoxOfMoreDetails> createState() => _BoxOfMoreDetailsState();
+}
+
+class _BoxOfMoreDetailsState extends State<BoxOfMoreDetails> {
+  bool seeMore = false;
+
+  _BoxOfMoreDetailsState();
 
   @override
   Widget build(BuildContext context) {
@@ -84,21 +122,32 @@ class BoxOfMoreDetails extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
-              'The Max Air 270 unit delivers unrivaled, all-day comfort. The sleek, running-inspired design roots you to everything Nike........',
+              widget.description,
               style: Styles.textStyle14,
+              overflow: TextOverflow.fade,
+              maxLines: seeMore ? 10 : 2,
             ),
             Align(
                 alignment: Alignment.centerRight,
-                child: Text(
-                  'Read More',
-                  style: Styles.textStyle14.copyWith(color: Color(0xff0D6EFD)),
+                child: GestureDetector(
+                  onTap: () {
+                    seeMore = true;
+                    setState(() {});
+                  },
+                  child: seeMore
+                      ? Container()
+                      : Text(
+                          'Read More',
+                          style: Styles.textStyle14
+                              .copyWith(color: const Color(0xff0D6EFD)),
+                        ),
                 )),
-            SizedBox(
-              height: 60,
+            const SizedBox(
+              height: 40,
             ),
           ],
         ),
@@ -110,8 +159,9 @@ class BoxOfMoreDetails extends StatelessWidget {
 class DetailsListView extends StatelessWidget {
   const DetailsListView({
     super.key,
+    required this.images,
   });
-
+  final List<dynamic> images;
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
@@ -120,7 +170,7 @@ class DetailsListView extends StatelessWidget {
         child: Container(
           height: 74,
           child: ListView.builder(
-            itemCount: 5,
+            itemCount: images.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -129,8 +179,8 @@ class DetailsListView extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(22)),
-                child: Image.asset(
-                  'asset/images/PngItem_5550642 (2) 1.png',
+                child: Image.network(
+                  images[index],
                 ),
               ),
             ),
@@ -144,17 +194,18 @@ class DetailsListView extends StatelessWidget {
 class ShoesDetails extends StatelessWidget {
   const ShoesDetails({
     super.key,
+    required this.shoes,
   });
-
+  final ShoesModel shoes;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AppBar(),
-          SizedBox(
+          const AppBar(),
+          const SizedBox(
             height: 20,
           ),
           SizedBox(
@@ -163,23 +214,20 @@ class ShoesDetails extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Nike Air Max 270 Essential',
+                    shoes.name ?? "",
+                    maxLines: 3,
+                    overflow: TextOverflow.clip,
                     style: Styles.textStyle20
                         .copyWith(fontSize: 26, fontWeight: FontWeight.w700),
                   ),
-                  SizedBox(
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  const SizedBox(
                     height: 8,
                   ),
                   Text(
-                    'Men’s Shoes',
-                    style: Styles.textStyle16.copyWith(
-                        color: Color(0xff707B81), fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    '\$179.39',
+                    shoes.price,
                     style: Styles.textStyle20
                         .copyWith(fontSize: 24, fontWeight: FontWeight.w700),
                   ),
@@ -193,8 +241,8 @@ class ShoesDetails extends StatelessWidget {
                 Container(
                     alignment: Alignment.bottomCenter,
                     child: Container(
-                      child: Image.asset(
-                        'asset/images/Aire Jordan Nike.png',
+                      child: Image.network(
+                        shoes.image?[0] ?? '',
                         fit: BoxFit.fill,
                       ),
                     )),
