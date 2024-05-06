@@ -10,28 +10,28 @@ class CategoryListView extends StatefulWidget {
 }
 
 class _CategoryListViewState extends State<CategoryListView> {
-  int count=0;
+  int count = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: ListView.builder(
-                      itemCount: category.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                count = index;
-                              });
-                            },
-                            child: CategoryBox(
-                              isChoose: count == index,
-                              shoes: category[index],
-                            ));
-                      },
-                    ),
-                  );
+      width: double.infinity,
+      height: 50,
+      child: ListView.builder(
+        itemCount: category.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+              onTap: () {
+                setState(() {
+                  count = index;
+                });
+              },
+              child: CategoryBox(
+                isChoose: count == index,
+                shoes: category[index],
+              ));
+        },
+      ),
+    );
   }
 }

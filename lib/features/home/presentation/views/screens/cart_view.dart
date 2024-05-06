@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shoes_store/core/utlis/styles.dart';
 import 'package:shoes_store/features/home/presentation/views/widgets/cart_details_box.dart';
 import 'package:shoes_store/features/home/presentation/views/widgets/cart_listview.dart';
-
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
@@ -49,13 +49,13 @@ class CartView extends StatelessWidget {
         ),
         const SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.only(top: 20, bottom: 20),
+            padding: EdgeInsets.only(top: 10, bottom: 20),
             child: CartDetailsBox(),
           ),
         ),
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
             child: SizedBox(
-          height: 30,
+          height: 30.h,
         ))
       ],
     );

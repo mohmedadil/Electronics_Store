@@ -60,13 +60,13 @@ class FavouriteBox extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         color: Color(0xff6A6A6A)),
                   ),
-                 const Spacer(),
-                const  Padding(
+                  const Spacer(),
+                  const Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                         Text(
+                        Text(
                           '\$302.00',
                           style: TextStyle(
                               fontSize: 16,

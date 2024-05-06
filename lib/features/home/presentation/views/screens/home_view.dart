@@ -6,8 +6,10 @@ import 'package:shoes_store/features/home/presentation/views/widgets/bottom_bar.
 import 'package:shoes_store/features/home/presentation/views/widgets/menu.dart';
 
 class HomeView extends StatelessWidget {
-  HomeView({super.key});
-  // UserCredential? user;
+  HomeView({
+    super.key,
+  });
+  //final UserCredential user;
 
   @override
   Widget build(BuildContext context) {

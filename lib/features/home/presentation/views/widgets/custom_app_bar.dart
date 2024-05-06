@@ -3,16 +3,17 @@ import 'package:shoes_store/core/utlis/styles.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({
-    super.key, this.onTap,
+    super.key,
+    this.onTap,
   });
-final void Function()? onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         GestureDetector(
-            onTap:onTap, child: Image.asset('asset/images/Hamburger.png')),
+            onTap: onTap, child: Image.asset('asset/images/Hamburger.png')),
         Row(
           children: [
             Stack(

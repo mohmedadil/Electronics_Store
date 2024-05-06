@@ -19,17 +19,7 @@ class FavouriteView extends StatelessWidget {
             'Favourite',
             style: Styles.textStyle18,
           ),
-          leading: const CircleAvatar(
-              backgroundColor: Colors.white, child: Icon(Icons.arrow_back)),
           centerTitle: true,
-          actions: const [
-            CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(
-                  FontAwesomeIcons.heart,
-                  color: Colors.grey,
-                ))
-          ],
         ),
         body: const FavouriteGridView(),
       ),

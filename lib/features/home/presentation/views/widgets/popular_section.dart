@@ -4,13 +4,15 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shoes_store/core/utlis/routes.dart';
 import 'package:shoes_store/core/utlis/styles.dart';
+import 'package:shoes_store/features/home/data/model/model.dart';
 import 'package:shoes_store/features/home/presentation/views/widgets/popular_box.dart';
 
 class PopularSection extends StatelessWidget {
   const PopularSection({
     super.key,
+    required this.shoes,
   });
-
+  final List<ShoesModel> shoes;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -32,25 +34,27 @@ class PopularSection extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              GestureDetector(
-                  onTap: () {
-                    GoRouter.of(context).push(Routers.kdetials);
-                  },
-                  child: PopularBox()),
-              SizedBox(
-                width: 20,
-              ),
-              GestureDetector(
-                  onTap: () {
-                    GoRouter.of(context).push(Routers.kdetials);
-                  },
-                  child: PopularBox()),
-            ],
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(Routers.kdetials);
+                },
+                child: PopularBox(
+                  shoes: shoes[4],
+                )),
+            const SizedBox(
+              width: 20,
+            ),
+            GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(Routers.kdetials);
+                },
+                child: PopularBox(
+                  shoes: shoes[2],
+                )),
+          ],
         ),
       ],
     );

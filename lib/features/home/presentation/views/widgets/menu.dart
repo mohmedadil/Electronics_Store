@@ -1,5 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shoes_store/core/utlis/routes.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -78,23 +82,38 @@ class MyDrawer extends StatelessWidget {
                   size: 20,
                 ),
               ),
-              const ListTile(
-                title: Text(
-                  'Logout',
-                  style: TextStyle(
-                      color: Color(0xffE30000),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15),
-                ),
-                leading: Icon(
-                  FontAwesomeIcons.arrowRightFromBracket,
-                  size: 20,
-                  color: Color(0xffE30000),
+              GestureDetector(
+                onTap: () async {
+                  try {
+                    await signout(context);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                },
+                child: const ListTile(
+                  title: Text(
+                    'Logout',
+                    style: TextStyle(
+                        color: Color(0xffE30000),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15),
+                  ),
+                  leading: Icon(
+                    FontAwesomeIcons.arrowRightFromBracket,
+                    size: 20,
+                    color: Color(0xffE30000),
+                  ),
                 ),
               )
             ],
           )),
     );
+  }
+
+  Future<void> signout(BuildContext context) async {
+    var auth = FirebaseAuth.instance;
+    await auth.signOut();
+    GoRouter.of(context).pushReplacement(Routers.kLogin);
   }
 }
 

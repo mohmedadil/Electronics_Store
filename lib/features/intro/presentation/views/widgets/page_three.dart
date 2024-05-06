@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shoes_store/features/intro/presentation/views/widgets/page_one.dart';
 
 class PageThree extends StatelessWidget {
-  const PageThree({super.key,});
+  const PageThree({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return SafeArea(

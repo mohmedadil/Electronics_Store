@@ -212,6 +212,7 @@ class _LoginViewState extends State<LoginView> {
     var auth = FirebaseAuth.instance;
     UserCredential user = await auth.signInWithEmailAndPassword(
         email: email!, password: password!);
+
     profile = user;
   }
 }

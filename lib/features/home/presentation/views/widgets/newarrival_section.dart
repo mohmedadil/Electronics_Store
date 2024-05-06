@@ -19,8 +19,8 @@ class NewArrivalsSection extends StatelessWidget {
             ),
             Text(
               'see all',
-              style: Styles.textStyle14.copyWith(
-                  fontSize: 14, color: const Color(0xff0D6EFD)),
+              style: Styles.textStyle14
+                  .copyWith(fontSize: 14, color: const Color(0xff0D6EFD)),
             ),
           ],
         ),

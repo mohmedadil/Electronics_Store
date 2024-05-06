@@ -11,7 +11,6 @@ class CartDetailsBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.zero,
-      width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.3,
       decoration: const BoxDecoration(color: Colors.white),
       child: Padding(
@@ -47,7 +46,10 @@ class CartDetailsBox extends StatelessWidget {
             ],
           ),
           const Text(
-              '---------------------------------------------------------------------------'),
+            '---------------------------------------------------------------------------------------',
+            overflow: TextOverflow.clip,
+            maxLines: 1,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

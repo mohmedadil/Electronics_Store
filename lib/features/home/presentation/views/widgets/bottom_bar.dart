@@ -33,7 +33,6 @@ class _BottomBarState extends State<BottomBar> {
             }
             setState(() {});
           }
-          BlocProvider.of<HomeCubit>(context).getpage(value);
           Provider.of<Mystate>(context, listen: false).setPage(value);
         },
         items: [

@@ -15,12 +15,9 @@ class CartListView extends StatelessWidget {
           itemCount: 3,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => const Padding(
-                padding:  EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.symmetric(vertical: 10),
                 child: CartBox(),
               )),
     );
   }
 }
-
-
-

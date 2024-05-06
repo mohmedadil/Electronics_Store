@@ -67,4 +67,3 @@ class _IntroViewState extends State<IntroView> {
     }
   }
 }
-

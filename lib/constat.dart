@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoes_store/features/home/presentation/views/screens/favourite_view.dart';
+import 'package:shoes_store/features/home/presentation/views/screens/profile.dart';
 import 'package:shoes_store/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:shoes_store/features/home/presentation/views/screens/cart_view.dart';
 
@@ -17,4 +18,5 @@ List<Widget> page = [
   HomeViewBody(),
   const FavouriteView(),
   const CartView(),
+  const AccountProfile(),
 ];

@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shoes_store/features/authintication/login/presentation/views/login_view.dart';
@@ -9,8 +8,8 @@ import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubi
 import 'package:shoes_store/features/home/presentation/views/screens/details_view.dart';
 import 'package:shoes_store/features/home/presentation/views/screens/favourite_view.dart';
 import 'package:shoes_store/features/home/presentation/views/screens/home_view.dart';
+import 'package:shoes_store/features/home/presentation/views/screens/searchView.dart';
 import 'package:shoes_store/features/intro/presentation/views/intro.dart';
-import 'package:shoes_store/features/splash/presntation/view/splash_view.dart';
 
 abstract class Routers {
   static const introduction = '/intro';
@@ -21,6 +20,7 @@ abstract class Routers {
   static const khome = '/home';
   static const kfavourite = '/favourite';
   static const kdetials = '/detials';
+  static const ksearch = '/search';
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -33,6 +33,10 @@ abstract class Routers {
     GoRoute(
       path: kLogin,
       builder: (context, state) => LoginView(),
+    ),
+    GoRoute(
+      path: ksearch,
+      builder: (context, state) => const SearchScreen(),
     ),
     GoRoute(
       path: kregister,
@@ -48,7 +52,10 @@ abstract class Routers {
     ),
     GoRoute(
       path: khome,
-      builder: (context, state) => HomeView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => HomeCubit(),
+        child: HomeView(),
+      ),
     ),
     GoRoute(
       path: kfavourite,
@@ -60,4 +67,4 @@ abstract class Routers {
     ),
   ]);
 }
-  // HomeView(user: state.extra as UserCredential),
+// HomeView(user: state.extra as UserCredential),
