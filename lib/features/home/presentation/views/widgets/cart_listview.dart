@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/cartbox.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/cartbox.dart';
 
 class CartListView extends StatelessWidget {
   const CartListView({

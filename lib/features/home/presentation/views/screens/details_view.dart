@@ -2,15 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shoes_store/constat.dart';
-import 'package:shoes_store/core/utlis/styles.dart';
-import 'package:shoes_store/core/widgets/buttons.dart';
-import 'package:shoes_store/core/model/shoes_model.dart';
+import 'package:Electronic_Store/constat.dart';
+import 'package:Electronic_Store/core/utlis/styles.dart';
+import 'package:Electronic_Store/core/widgets/buttons.dart';
+import 'package:Electronic_Store/core/model/shoes_model.dart';
+import 'package:Electronic_Store/features/favourite/presentation/view_model/cubit/getfavourite_cubit.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/add_favourite/addfavourite_cubit.dart';
 
 class DetailsView extends StatefulWidget {
   const DetailsView({super.key, required this.shoes});
-  final ShoesModel shoes;
+  final ItemModel shoes;
 
   @override
   State<DetailsView> createState() => _DetailsViewState();
@@ -30,12 +33,12 @@ class _DetailsViewState extends State<DetailsView> {
                   slivers: [
                     SliverToBoxAdapter(
                       child: ShoesDetails(
-                        shoes: widget.shoes,
+                        item: widget.shoes,
                       ),
                     ),
-                    DetailsListView(
-                      images: widget.shoes.image ?? [],
-                    ),
+                    // DetailsListView(
+                    //   images: widget.shoes.image ?? '',
+                    // ),
                     BoxOfMoreDetails(
                       description: widget.shoes.description ?? "",
                     )
@@ -45,7 +48,9 @@ class _DetailsViewState extends State<DetailsView> {
             ),
             SizedBox(
                 height: MediaQuery.of(context).size.height * 0.12,
-                child: const DetailsAction()),
+                child: DetailsAction(
+                  shoes: widget.shoes,
+                )),
           ],
         ),
       ),
@@ -53,13 +58,22 @@ class _DetailsViewState extends State<DetailsView> {
   }
 }
 
-class DetailsAction extends StatelessWidget {
+class DetailsAction extends StatefulWidget {
   const DetailsAction({
     super.key,
+    required this.shoes,
   });
+  final ItemModel shoes;
 
   @override
+  State<DetailsAction> createState() => _DetailsActionState();
+}
+
+class _DetailsActionState extends State<DetailsAction> {
+  _DetailsActionState();
+  @override
   Widget build(BuildContext context) {
+    bool isSelected = widget.shoes.isFavourite;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -67,17 +81,47 @@ class DetailsAction extends StatelessWidget {
         Column(
           children: [
             Spacer(),
-            CircleAvatar(
-                radius: 25,
-                backgroundColor: const Color(0xffD9D9D9),
-                child: Container(
-                  width: 20,
-                  height: 20,
-                  child: Image.asset(
-                    'asset/images/heart.png',
-                    fit: BoxFit.fill,
-                  ),
-                )),
+            GestureDetector(
+              onTap: () {
+                if (widget.shoes.isFavourite == false) {
+                  widget.shoes.isFavourite = true;
+                  BlocProvider.of<AddfavouriteCubit>(context)
+                      .addToFavourite(widget.shoes);
+
+                  setState(() {});
+                } else {
+                  isSelected = false;
+                  widget.shoes.isFavourite = false;
+                  setState(() {});
+                  BlocProvider.of<GetfavouriteCubit>(context).getFavourite();
+                  widget.shoes.delete();
+                }
+              },
+              child: isSelected
+                  ? CircleAvatar(
+                      radius: 25,
+                      backgroundColor: Colors.red,
+                      child: Container(
+                        width: 20,
+                        height: 20,
+                        child: Image.asset(
+                          'asset/images/heart.png',
+                          fit: BoxFit.fill,
+                          color: Colors.white,
+                        ),
+                      ))
+                  : CircleAvatar(
+                      radius: 25,
+                      backgroundColor: const Color(0xffD9D9D9),
+                      child: Container(
+                        width: 20,
+                        height: 20,
+                        child: Image.asset(
+                          'asset/images/heart.png',
+                          fit: BoxFit.fill,
+                        ),
+                      )),
+            ),
             Spacer(),
           ],
         ),
@@ -194,9 +238,9 @@ class DetailsListView extends StatelessWidget {
 class ShoesDetails extends StatelessWidget {
   const ShoesDetails({
     super.key,
-    required this.shoes,
+    required this.item,
   });
-  final ShoesModel shoes;
+  final ItemModel item;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -214,7 +258,7 @@ class ShoesDetails extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    shoes.name ?? "",
+                    item.title ?? "",
                     maxLines: 3,
                     overflow: TextOverflow.clip,
                     style: Styles.textStyle20
@@ -227,7 +271,7 @@ class ShoesDetails extends StatelessWidget {
                     height: 8,
                   ),
                   Text(
-                    shoes.price,
+                    item.price.toString(),
                     style: Styles.textStyle20
                         .copyWith(fontSize: 24, fontWeight: FontWeight.w700),
                   ),
@@ -242,7 +286,7 @@ class ShoesDetails extends StatelessWidget {
                     alignment: Alignment.bottomCenter,
                     child: Container(
                       child: Image.network(
-                        shoes.image?[0] ?? '',
+                        item.image ?? '',
                         fit: BoxFit.fill,
                       ),
                     )),

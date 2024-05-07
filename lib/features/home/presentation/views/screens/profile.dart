@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/profile_body.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/profile_body.dart';
 
 class AccountProfile extends StatelessWidget {
   const AccountProfile({super.key});

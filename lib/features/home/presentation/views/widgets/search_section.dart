@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:shoes_store/core/utlis/routes.dart';
-import 'package:shoes_store/features/home/presentation/controler/provider/model.dart';
+import 'package:Electronic_Store/core/utlis/routes.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/provider/model.dart';
 
 class SearchSection extends StatefulWidget {
   const SearchSection({

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shoes_store/core/utlis/styles.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/cart_details_box.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/cart_listview.dart';
+import 'package:Electronic_Store/core/utlis/styles.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/cart_details_box.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/cart_listview.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});

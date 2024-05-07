@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shoes_store/core/utlis/styles.dart';
-import 'package:shoes_store/features/home/presentation/controler/provider/model.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/category_listview.dart';
+import 'package:Electronic_Store/core/utlis/styles.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/provider/model.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/category_listview.dart';
 
 class CategorySection extends StatelessWidget {
   const CategorySection({

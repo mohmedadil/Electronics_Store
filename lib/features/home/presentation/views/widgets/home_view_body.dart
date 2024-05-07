@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
-import 'package:shoes_store/features/home/presentation/controler/provider/model.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/category_section.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/custom_app_bar.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/newarrival_section.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/popular_section.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/search_section.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/home_cubit/home_cubit.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/provider/model.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/category_section.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/newarrival_section.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/popular_box.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/popular_section.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/search_section.dart';
 
 class HomeViewBody extends StatefulWidget {
   HomeViewBody({
@@ -49,6 +50,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               height: 24,
             ),
             PopularSection(),
+            PopularBox(),
             const SizedBox(
               height: 24,
             ),

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shoes_store/core/widgets/buttons.dart';
-import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
+import 'package:Electronic_Store/core/widgets/buttons.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/home_cubit/home_cubit.dart';
 
 class AccountProfileBody extends StatelessWidget {
   AccountProfileBody({super.key});

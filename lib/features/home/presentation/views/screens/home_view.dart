@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shoes_store/constat.dart';
-import 'package:shoes_store/features/home/presentation/controler/provider/model.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/bottom_bar.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/menu.dart';
+import 'package:Electronic_Store/constat.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/provider/model.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/bottom_bar.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/menu.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({

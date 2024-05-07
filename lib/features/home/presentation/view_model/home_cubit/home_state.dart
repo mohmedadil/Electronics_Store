@@ -8,7 +8,7 @@ final class HomeInitial extends HomeState {}
 final class HomeLoading extends HomeState {}
 
 final class HomeSuccess extends HomeState {
-  final List<ShoesModel> shoes;
+  final List<ItemModel> shoes;
 
   HomeSuccess({required this.shoes});
 }

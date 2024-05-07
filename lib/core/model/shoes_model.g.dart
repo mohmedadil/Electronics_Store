@@ -6,39 +6,50 @@ part of 'shoes_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ShoesModelAdapter extends TypeAdapter<ShoesModel> {
+class ItemModelAdapter extends TypeAdapter<ItemModel> {
   @override
   final int typeId = 0;
 
   @override
-  ShoesModel read(BinaryReader reader) {
+  ItemModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return ShoesModel(
-      id: fields[0] as String?,
-      name: fields[1] as String?,
-      price: fields[2] as dynamic,
-      description: fields[4] as String?,
-      image: (fields[3] as List?)?.cast<dynamic>(),
-    );
+    return ItemModel(
+      id: fields[0] as int?,
+      title: fields[1] as String?,
+      price: fields[3] as dynamic,
+      description: fields[5] as String?,
+      image: fields[4] as String?,
+      brand: fields[6] as String?,
+      category: fields[2] as String?,
+      color: fields[7] as String?,
+    )..isFavourite = fields[8] as bool;
   }
 
   @override
-  void write(BinaryWriter writer, ShoesModel obj) {
+  void write(BinaryWriter writer, ItemModel obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.name)
+      ..write(obj.title)
       ..writeByte(2)
-      ..write(obj.price)
+      ..write(obj.category)
       ..writeByte(3)
-      ..write(obj.image)
+      ..write(obj.price)
       ..writeByte(4)
-      ..write(obj.description);
+      ..write(obj.image)
+      ..writeByte(5)
+      ..write(obj.description)
+      ..writeByte(6)
+      ..write(obj.brand)
+      ..writeByte(7)
+      ..write(obj.color)
+      ..writeByte(8)
+      ..write(obj.isFavourite);
   }
 
   @override
@@ -47,7 +58,7 @@ class ShoesModelAdapter extends TypeAdapter<ShoesModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ShoesModelAdapter &&
+      other is ItemModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

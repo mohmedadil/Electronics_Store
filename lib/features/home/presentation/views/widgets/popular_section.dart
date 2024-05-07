@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shoes_store/core/utlis/routes.dart';
-import 'package:shoes_store/core/utlis/styles.dart';
-import 'package:shoes_store/core/model/shoes_model.dart';
-import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/popular_box.dart';
+import 'package:Electronic_Store/core/utlis/routes.dart';
+import 'package:Electronic_Store/core/utlis/styles.dart';
+import 'package:Electronic_Store/core/model/shoes_model.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/home_cubit/home_cubit.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/popular_box.dart';
 
 class PopularSection extends StatelessWidget {
   const PopularSection({

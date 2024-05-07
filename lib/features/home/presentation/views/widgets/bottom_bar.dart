@@ -2,8 +2,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
-import 'package:shoes_store/features/home/presentation/controler/provider/model.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/home_cubit/home_cubit.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/provider/model.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({

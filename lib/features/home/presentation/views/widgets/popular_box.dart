@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shoes_store/core/model/shoes_model.dart';
+import 'package:Electronic_Store/core/model/shoes_model.dart';
 
 class PopularBox extends StatelessWidget {
-  const PopularBox({
+  PopularBox({
     super.key,
-    required this.shoes,
+    this.shoes,
   });
-  final ShoesModel shoes;
+  ItemModel? shoes;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -34,7 +34,7 @@ class PopularBox extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 12),
                         child: Image.network(
-                          shoes.image?[0] ?? '',
+                          'https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1691056487173-headphon2.jpg',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -57,7 +57,7 @@ class PopularBox extends StatelessWidget {
                   height: 4.h,
                 ),
                 Text(
-                  shoes.name ?? 'No title',
+                  shoes?.title ?? 'No title',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       fontSize: 16.sp,
@@ -69,7 +69,7 @@ class PopularBox extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${shoes.price}',
+                        '${shoes?.price}',
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w600,

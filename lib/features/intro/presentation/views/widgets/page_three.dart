@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_store/features/intro/presentation/views/widgets/page_one.dart';
+import 'package:Electronic_Store/features/intro/presentation/views/widgets/page_one.dart';
 
 class PageThree extends StatelessWidget {
   const PageThree({

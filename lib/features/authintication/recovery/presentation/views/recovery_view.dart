@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shoes_store/core/utlis/routes.dart';
-import 'package:shoes_store/core/utlis/styles.dart';
-import 'package:shoes_store/core/widgets/buttons.dart';
-import 'package:shoes_store/features/authintication/login/presentation/views/widgets/custom_form_field.dart';
+import 'package:Electronic_Store/core/utlis/routes.dart';
+import 'package:Electronic_Store/core/utlis/styles.dart';
+import 'package:Electronic_Store/core/widgets/buttons.dart';
+import 'package:Electronic_Store/features/authintication/login/presentation/views/widgets/custom_form_field.dart';
 
 class RecoveryView extends StatelessWidget {
   const RecoveryView({super.key});

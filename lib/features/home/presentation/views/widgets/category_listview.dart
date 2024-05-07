@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shoes_store/constat.dart';
-import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/category_box.dart';
+import 'package:Electronic_Store/constat.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/home_cubit/home_cubit.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/category_box.dart';
 
 class CategoryListView extends StatefulWidget {
   const CategoryListView({super.key});

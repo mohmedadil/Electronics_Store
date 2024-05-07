@@ -3,11 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:shoes_store/core/utlis/routes.dart';
-import 'package:shoes_store/core/utlis/styles.dart';
-import 'package:shoes_store/core/widgets/buttons.dart';
-import 'package:shoes_store/core/widgets/snackbar.dart';
-import 'package:shoes_store/features/authintication/login/presentation/views/widgets/custom_form_field.dart';
+import 'package:Electronic_Store/core/utlis/routes.dart';
+import 'package:Electronic_Store/core/utlis/styles.dart';
+import 'package:Electronic_Store/core/widgets/buttons.dart';
+import 'package:Electronic_Store/core/widgets/snackbar.dart';
+import 'package:Electronic_Store/features/authintication/login/presentation/views/widgets/custom_form_field.dart';
 
 class RegisterView extends StatefulWidget {
   RegisterView({super.key});

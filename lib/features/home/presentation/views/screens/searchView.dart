@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:shoes_store/constat.dart';
-import 'package:shoes_store/core/utlis/styles.dart';
-import 'package:shoes_store/features/home/presentation/views/widgets/search_section.dart';
+import 'package:Electronic_Store/constat.dart';
+import 'package:Electronic_Store/core/utlis/styles.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/search_section.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});

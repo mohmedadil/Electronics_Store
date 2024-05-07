@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:shoes_store/constat.dart';
-import 'package:shoes_store/core/utlis/styles.dart';
+import 'package:Electronic_Store/constat.dart';
+import 'package:Electronic_Store/core/utlis/styles.dart';
 
 class CartBox extends StatefulWidget {
   const CartBox({

@@ -2,26 +2,37 @@ import 'package:hive/hive.dart';
 part 'shoes_model.g.dart';
 
 @HiveType(typeId: 0)
-class ShoesModel extends HiveObject {
+class ItemModel extends HiveObject {
   @HiveField(0)
-  String? id;
+  int? id;
   @HiveField(1)
-  String? name;
+  String? title;
   @HiveField(2)
-  dynamic price;
+  String? category;
   @HiveField(3)
-  List<dynamic>? image;
+  dynamic price;
   @HiveField(4)
+  String ?image;
+  @HiveField(5)
   String? description;
+  @HiveField(6)
+  String? brand;
+  @HiveField(7)
+  String? color;
+  @HiveField(8)
+  bool isFavourite = false;
 
-  ShoesModel({this.id, this.name, this.price, this.description, this.image});
+  ItemModel({this.id, this.title, this.price, this.description, this.image,this.brand,this.category,this.color});
 
-  factory ShoesModel.fromjson(Map<String, dynamic> json) {
-    return ShoesModel(
-        id: json['product_id'],
-        description: json['product_description'],
-        image: json['product_photos'],
-        name: json['product_title'],
-        price: json['offer']['price']);
+  factory ItemModel.fromjson(Map<String, dynamic> json) {
+    return ItemModel(
+        id: json['id'],
+        description: json['description'],
+        image: json['image'],
+        title: json['title'],
+        price: json['price'],
+        brand: json['brand'],
+        color: json['color'],
+        category: json['category']);
   }
 }

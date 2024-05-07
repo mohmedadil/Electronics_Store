@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_store/core/utlis/styles.dart';
+import 'package:Electronic_Store/core/utlis/styles.dart';
 
 class CategoryBox extends StatefulWidget {
   const CategoryBox({

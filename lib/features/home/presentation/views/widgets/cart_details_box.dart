@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_store/core/utlis/styles.dart';
-import 'package:shoes_store/core/widgets/buttons.dart';
+import 'package:Electronic_Store/core/utlis/styles.dart';
+import 'package:Electronic_Store/core/widgets/buttons.dart';
 
 class CartDetailsBox extends StatelessWidget {
   const CartDetailsBox({

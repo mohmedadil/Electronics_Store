@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shoes_store/constat.dart';
+import 'package:Electronic_Store/constat.dart';
+import 'package:Electronic_Store/core/model/shoes_model.dart';
 
 class FavouriteBox extends StatelessWidget {
   const FavouriteBox({
     super.key,
+    required this.item,
   });
-
+  final ItemModel item;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -25,6 +28,14 @@ class FavouriteBox extends StatelessWidget {
                 children: [
                   Stack(
                     children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.29 * 0.5,
+                        width: double.infinity,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 12),
+                          child: Image.network(item.image ?? ""),
+                        ),
+                      ),
                       const Padding(
                         padding: const EdgeInsets.only(top: 12),
                         child: Align(
@@ -39,11 +50,6 @@ class FavouriteBox extends StatelessWidget {
                               ),
                             )),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12),
-                        child: Image.asset(
-                            'asset/images/PngItem_5550642 (2) 1.png'),
-                      ),
                     ],
                   ),
                   const Text(
@@ -53,22 +59,24 @@ class FavouriteBox extends StatelessWidget {
                   const SizedBox(
                     height: 4,
                   ),
-                  const Text(
-                    'Nike Jordan',
-                    style: TextStyle(
+                  Text(
+                    item.title ?? '',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                         color: Color(0xff6A6A6A)),
                   ),
                   const Spacer(),
-                  const Padding(
+                  Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '\$302.00',
-                          style: TextStyle(
+                          item.price.toString(),
+                          style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                               color: Color(0xff6A6A6A)),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shoes_store/core/utlis/routes.dart';
+import 'package:Electronic_Store/core/utlis/routes.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});

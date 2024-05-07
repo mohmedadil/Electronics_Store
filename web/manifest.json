@@ -1,6 +1,6 @@
 {
-    "name": "shoes_store",
-    "short_name": "shoes_store",
+    "name": "Electronic_Store",
+    "short_name": "Electronic_Store",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

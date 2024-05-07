@@ -1,16 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shoes_store/features/authintication/login/presentation/views/login_view.dart';
-import 'package:shoes_store/features/authintication/recovery/presentation/views/recovery_view.dart';
-import 'package:shoes_store/features/authintication/recovery/presentation/views/verification_view.dart';
-import 'package:shoes_store/features/authintication/register/presentation/views/register_view.dart';
-import 'package:shoes_store/core/model/shoes_model.dart';
-import 'package:shoes_store/features/home/presentation/controler/cubit/home_cubit.dart';
-import 'package:shoes_store/features/home/presentation/views/screens/details_view.dart';
-import 'package:shoes_store/features/favourite/presentation/views/favourite_view.dart';
-import 'package:shoes_store/features/home/presentation/views/screens/home_view.dart';
-import 'package:shoes_store/features/home/presentation/views/screens/searchView.dart';
-import 'package:shoes_store/features/intro/presentation/views/intro.dart';
+import 'package:Electronic_Store/features/authintication/login/presentation/views/login_view.dart';
+import 'package:Electronic_Store/features/authintication/recovery/presentation/views/recovery_view.dart';
+import 'package:Electronic_Store/features/authintication/recovery/presentation/views/verification_view.dart';
+import 'package:Electronic_Store/features/authintication/register/presentation/views/register_view.dart';
+import 'package:Electronic_Store/core/model/shoes_model.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/home_cubit/home_cubit.dart';
+import 'package:Electronic_Store/features/home/presentation/views/screens/details_view.dart';
+import 'package:Electronic_Store/features/favourite/presentation/views/favourite_view.dart';
+import 'package:Electronic_Store/features/home/presentation/views/screens/home_view.dart';
+import 'package:Electronic_Store/features/home/presentation/views/screens/searchView.dart';
+import 'package:Electronic_Store/features/intro/presentation/views/intro.dart';
 
 abstract class Routers {
   static const introduction = '/intro';
@@ -64,7 +64,9 @@ abstract class Routers {
     ),
     GoRoute(
       path: kdetials,
-      builder: (context, state) =>  DetailsView(shoes: state.extra as ShoesModel,),
+      builder: (context, state) => DetailsView(
+        shoes: state.extra as ItemModel,
+      ),
     ),
   ]);
 }
