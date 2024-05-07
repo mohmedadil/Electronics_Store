@@ -25,29 +25,16 @@ class PopularBox extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.28 * 0.6,
-                      width: MediaQuery.of(context).size.width * 0.4,
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 12),
-                        child: Image.network(
-                          'https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1691056487173-headphon2.jpg',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.28 * 0.6,
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 12),
+                    child: Image.network(
+                      shoes?.image ?? '',
+                      fit: BoxFit.contain,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12),
-                      child: Align(
-                          alignment: Alignment.bottomLeft,
-                          child: Image.asset(
-                            'asset/images/heart.png',
-                          )),
-                    ),
-                  ],
+                  ),
                 ),
                 const Text(
                   'BEST SELLER',
@@ -69,7 +56,7 @@ class PopularBox extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${shoes?.price}',
+                        '\$ ${shoes?.price}',
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w600,

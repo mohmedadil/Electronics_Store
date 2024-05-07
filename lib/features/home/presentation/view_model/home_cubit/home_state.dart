@@ -8,9 +8,9 @@ final class HomeInitial extends HomeState {}
 final class HomeLoading extends HomeState {}
 
 final class HomeSuccess extends HomeState {
-  final List<ItemModel> shoes;
+  final List<ItemModel> item;
 
-  HomeSuccess({required this.shoes});
+  HomeSuccess({required this.item});
 }
 
 final class HomeFaluire extends HomeState {}

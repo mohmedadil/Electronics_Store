@@ -8,10 +8,12 @@ const kBackgroundColor = Color(0xffF7F7F9);
 const kfont = 'Raleway';
 List<String> category = [
   'All',
-  'Outdoor ',
-  'Tennis',
-  'Athletic shoes',
-  'Boat shoes'
+  'tv',
+  'audio',
+  'laptop',
+  'mobile',
+  "gaming",
+  "appliances",
 ];
 
 List<Widget> page = [

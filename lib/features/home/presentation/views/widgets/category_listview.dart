@@ -27,10 +27,10 @@ class _CategoryListViewState extends State<CategoryListView> {
                 setState(() {
                   count = index;
                   if (index == 0) {
-                    BlocProvider.of<HomeCubit>(context).getshoes('shoes');
+                    BlocProvider.of<HomeCubit>(context).getItem();
                   } else {
                     BlocProvider.of<HomeCubit>(context)
-                        .getshoes(category[index] + 'shoes');
+                        .getCategoryItem(category[index]);
                   }
                 });
               },

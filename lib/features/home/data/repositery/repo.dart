@@ -4,8 +4,17 @@ import 'package:Electronic_Store/features/home/data/webservices/api_services.dar
 class Repositery {
   ApiServices apiServices = ApiServices();
 
-  Future<List<ItemModel>> getItem(String endpoint) async {
-    var response = await apiServices.getItem(endpoint);
+  Future<List<ItemModel>> getItem( ) async {
+    var response = await apiServices.getItem();
+    List<ItemModel> list = [];
+    for (var element in response['products']) {
+      list.add(ItemModel.fromjson(element));
+    }
+    print(list.length);
+    return list;
+  }
+   Future<List<ItemModel>> getCategoryItems(String category)  async {
+    var response = await apiServices.getCategoryItem(category);
     List<ItemModel> list = [];
     for (var element in response['products']) {
       list.add(ItemModel.fromjson(element));

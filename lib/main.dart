@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         child: MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => HomeCubit(),
+              create: (context) => HomeCubit()..getItem(),
             ),
             BlocProvider(
               create: (context) => AddfavouriteCubit(),
