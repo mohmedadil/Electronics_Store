@@ -10,7 +10,6 @@ class Repositery {
     for (var element in response['products']) {
       list.add(ItemModel.fromjson(element));
     }
-    print(list.length);
     return list;
   }
    Future<List<ItemModel>> getCategoryItems(String category)  async {
@@ -19,7 +18,6 @@ class Repositery {
     for (var element in response['products']) {
       list.add(ItemModel.fromjson(element));
     }
-    print(list.length);
     return list;
   }
 }

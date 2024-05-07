@@ -36,9 +36,7 @@ class _DetailsViewState extends State<DetailsView> {
                         item: widget.shoes,
                       ),
                     ),
-                    // DetailsListView(
-                    //   images: widget.shoes.image ?? '',
-                    // ),
+                    
                     BoxOfMoreDetails(
                       description: widget.shoes.description ?? "",
                     )
@@ -270,10 +268,44 @@ class ShoesDetails extends StatelessWidget {
                   const SizedBox(
                     height: 8,
                   ),
+                  Row(
+                    children: [
+                      Text(
+                        'Brand :',
+                        style: Styles.textStyle20.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.w700),
+                      ),
+                      Text(
+                        ' ${item.brand}',
+                        style: Styles.textStyle20.copyWith(
+                            fontSize: 20, fontWeight: FontWeight.w700),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        'Color :',
+                        style: Styles.textStyle20.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.w700),
+                      ),
+                      Text(
+                        ' ${item.color}',
+                        style: Styles.textStyle20.copyWith(
+                            fontSize: 20, fontWeight: FontWeight.w700),
+                      ),
+                    ],
+                  ),
                   Text(
-                    item.price.toString(),
+                    '\$ ${item.price.toString()}',
                     style: Styles.textStyle20
                         .copyWith(fontSize: 24, fontWeight: FontWeight.w700),
+                  ),
+                  const SizedBox(
+                    height: 8,
                   ),
                 ],
               )),
@@ -295,6 +327,9 @@ class ShoesDetails extends StatelessWidget {
                     child: Image.asset('asset/images/Slider.png')),
               ],
             ),
+          ),
+          SizedBox(
+            height: 10,
           ),
         ],
       ),

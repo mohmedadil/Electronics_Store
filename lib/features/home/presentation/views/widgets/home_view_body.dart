@@ -24,7 +24,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    print('build');
     return Padding(
       padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
       child: Column(
