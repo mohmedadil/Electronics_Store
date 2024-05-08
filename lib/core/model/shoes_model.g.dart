@@ -25,13 +25,15 @@ class ItemModelAdapter extends TypeAdapter<ItemModel> {
       brand: fields[6] as String?,
       category: fields[2] as String?,
       color: fields[7] as String?,
-    )..isFavourite = fields[8] as bool;
+    )
+      ..isFavourite = fields[8] as bool
+      ..cart = fields[9] as bool;
   }
 
   @override
   void write(BinaryWriter writer, ItemModel obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -49,7 +51,9 @@ class ItemModelAdapter extends TypeAdapter<ItemModel> {
       ..writeByte(7)
       ..write(obj.color)
       ..writeByte(8)
-      ..write(obj.isFavourite);
+      ..write(obj.isFavourite)
+      ..writeByte(9)
+      ..write(obj.cart);
   }
 
   @override

@@ -30,16 +30,16 @@ class _SplashViewBodyState extends State<SplashViewBody>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            'asset/images/logo.png',
+            'asset/images/logo2.webp',
             width: MediaQuery.of(context).size.width * .7,
           ),
           FadeTransition(
             opacity: fadingAnimation!,
             child: const Text(
-              'Shoes Store',
+              'Electronic Store',
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 60,
+                  fontSize: 48,
                   fontWeight: FontWeight.w600,
                   fontFamily: 'Raleway'),
             ),
@@ -53,11 +53,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(
       Duration(seconds: 2),
       () async {
-        final SharedPreferences prefs = await SharedPreferences.getInstance();
-        bool skipIntro = prefs.getBool('skipIntro') ?? false;
-        skipIntro
-            ? GoRouter.of(context).push(Routers.kLogin)
-            : GoRouter.of(context).push(Routers.introduction);
+        // final SharedPreferences prefs = await SharedPreferences.getInstance();
+        // bool skipIntro = prefs.getBool('skipIntro') ?? false;
+        // skipIntro
+            // ? GoRouter.of(context).push(Routers.kLogin)
+            // : 
+            GoRouter.of(context).push(Routers.introduction);
       },
     );
   }

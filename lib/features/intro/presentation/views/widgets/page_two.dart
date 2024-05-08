@@ -27,7 +27,15 @@ class PageTwo extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Image.asset('asset/images/Spring_prev_ui 1.png'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            width: MediaQuery.of(context).size.height * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.3,
+                            child: Image.asset('asset/images/iphone.png')),
+                      ],
+                    ),
                   ],
                 ),
                 Container(
@@ -46,7 +54,7 @@ class PageTwo extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Smart, Gorgeous & Fashionable \n Collection Explor Now',
+                  'Smart, Gorgeous & Cheaper \n Collection Explor Now',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 16,

@@ -11,7 +11,7 @@ class AddfavouriteCubit extends Cubit<AddfavouriteState> {
   addToFavourite(ItemModel shoes) async {
     try {
       emit(AddfavouriteLoading());
-      var favouriteBox = Hive.box<ItemModel>('shoesbox');
+      var favouriteBox = Hive.box<ItemModel>('favouritebox');
       await favouriteBox.add(shoes);
       print(favouriteBox.length);
       emit(AddfavouriteSuccess());

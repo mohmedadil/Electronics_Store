@@ -63,9 +63,10 @@ class _SearchSectionState extends State<SearchSection> {
 }
 
 class CustomSearchBar extends StatelessWidget {
-  const CustomSearchBar({super.key, this.ontap, required this.issearching});
+  const CustomSearchBar({super.key, this.ontap, required this.issearching, this.onChanged});
   final void Function()? ontap;
   final bool issearching;
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -85,6 +86,7 @@ class CustomSearchBar extends StatelessWidget {
             children: [
               Expanded(
                 child: TextField(
+                  onChanged: onChanged,
                     onTap: ontap,
                     textAlign: TextAlign.start,
                     decoration: const InputDecoration(

@@ -1,8 +1,14 @@
+import 'package:Electronic_Store/core/utlis/routes.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/home_cubit/home_cubit.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/search/search_cubit_cubit.dart';
+import 'package:Electronic_Store/features/home/presentation/views/widgets/popular_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:Electronic_Store/constat.dart';
 import 'package:Electronic_Store/core/utlis/styles.dart';
 import 'package:Electronic_Store/features/home/presentation/views/widgets/search_section.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -14,7 +20,7 @@ class SearchScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
         title: const Text(
-          'Favourite',
+          'Search View',
           style: Styles.textStyle18,
         ),
         leading: BackButton(),
@@ -30,25 +36,67 @@ class SearchScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        width: double.infinity,
-        child: const Padding(
-          padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-          child: Column(
-            children: [
-              CustomSearchBar(
-                issearching: true,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Shoes',
-                    style: Styles.textStyle18,
-                  ))
-            ],
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+            child: Column(
+              children: [
+                CustomSearchBar(
+                  issearching: true,
+                  onChanged: (value) {
+                    var items = BlocProvider.of<HomeCubit>(context).item;
+                    BlocProvider.of<SearchCubitCubit>(context)
+                        .ForSearch(value, items);
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Item',
+                      style: Styles.textStyle18,
+                    )),
+                SizedBox(
+                  height: 20,
+                ),
+                BlocBuilder<SearchCubitCubit, SearchCubitState>(
+                  builder: (context, state) {
+                    if (state is SearchCubitSuccess) {
+                      if (state.items.length == 0) {
+                        return Text('Item Not Found');
+                      } else {
+                        return GridView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: state.items.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 10,
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 2.9 / 3.8),
+                          itemBuilder: (context, index) => GestureDetector(
+                            onTap: () {
+                              GoRouter.of(context).push(Routers.kdetials,
+                                  extra: state.items[index]);
+                            },
+                            child: PopularBox(
+                              shoes: state.items[index],
+                            ),
+                          ),
+                        );
+                      }
+                    } else {
+                      return Text('Start Search');
+                    }
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),

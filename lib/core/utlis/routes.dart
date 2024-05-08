@@ -1,3 +1,8 @@
+import 'package:Electronic_Store/features/cart/presentation/view/cart_view.dart';
+import 'package:Electronic_Store/features/cart/presentation/view_model/cubit/getcart_cubit.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/search/search_cubit_cubit.dart';
+import 'package:Electronic_Store/features/splash/presntation/view/splash_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:Electronic_Store/features/authintication/login/presentation/views/login_view.dart';
@@ -22,10 +27,11 @@ abstract class Routers {
   static const kfavourite = '/favourite';
   static const kdetials = '/detials';
   static const ksearch = '/search';
+  static const kcart = '/cart';
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => HomeView(),
+      builder: (context, state) => SplashView(),
     ),
     GoRoute(
       path: introduction,
@@ -37,7 +43,10 @@ abstract class Routers {
     ),
     GoRoute(
       path: ksearch,
-      builder: (context, state) => const SearchScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => SearchCubitCubit(),
+        child: const SearchScreen(),
+      ),
     ),
     GoRoute(
       path: kregister,
@@ -53,10 +62,7 @@ abstract class Routers {
     ),
     GoRoute(
       path: khome,
-      builder: (context, state) => BlocProvider(
-        create: (context) => HomeCubit(),
-        child: HomeView(),
-      ),
+      builder: (context, state) =>HomeView(user: state.extra as UserCredential),
     ),
     GoRoute(
       path: kfavourite,
@@ -65,8 +71,12 @@ abstract class Routers {
     GoRoute(
       path: kdetials,
       builder: (context, state) => DetailsView(
-        shoes: state.extra as ItemModel,
+        item: state.extra as ItemModel,
       ),
+    ),
+    GoRoute(
+      path: kcart,
+      builder: (context, state) => const CartView(),
     ),
   ]);
 }

@@ -8,7 +8,9 @@ import 'package:Electronic_Store/core/utlis/routes.dart';
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
     super.key,
+    required this.user,
   });
+  final UserCredential user;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,9 @@ class MyDrawer extends StatelessWidget {
           elevation: 0,
           child: ListView(
             children: [
-              const MyHeader(),
+              MyHeader(
+                user: user,
+              ),
               const ListTile(
                 title: Text(
                   'Profile',
@@ -119,7 +123,9 @@ class MyDrawer extends StatelessWidget {
 class MyHeader extends StatelessWidget {
   const MyHeader({
     super.key,
+    required this.user,
   });
+  final UserCredential user;
 
   @override
   Widget build(BuildContext context) {
@@ -136,16 +142,16 @@ class MyHeader extends StatelessWidget {
               image:
                   DecorationImage(image: AssetImage('asset/images/test.png'))),
         ),
-        const Text(
-          'Mohamed Adel',
-          style: TextStyle(
+        Text(
+          user.user?.displayName ?? 'Jon Sina',
+          style: const TextStyle(
               color: Color(0xff0D0D26),
               fontSize: 20,
               fontWeight: FontWeight.w500),
         ),
-        const Text(
-          'mohmedadil797@gmail.com',
-          style: TextStyle(color: Color(0xff95969D)),
+        Text(
+          user.user?.email ?? 'JonSina@gmail.com',
+          style: const TextStyle(color: Color(0xff95969D)),
         ),
       ]),
     );

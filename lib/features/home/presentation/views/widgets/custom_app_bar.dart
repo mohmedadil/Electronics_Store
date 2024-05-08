@@ -1,5 +1,10 @@
+import 'package:Electronic_Store/core/utlis/routes.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/provider/model.dart';
 import 'package:flutter/material.dart';
 import 'package:Electronic_Store/core/utlis/styles.dart';
+import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({
@@ -38,10 +43,15 @@ class CustomAppbar extends StatelessWidget {
           ],
         ),
         Stack(alignment: AlignmentDirectional.topEnd, children: [
-          CircleAvatar(
-              radius: 22,
-              backgroundColor: Colors.white,
-              child: Image.asset('asset/images/bag-2.png')),
+          GestureDetector(
+            onTap: () {
+              Provider.of<Mystate>(context, listen: false).setPage(2);
+            },
+            child: CircleAvatar(
+                radius: 22,
+                backgroundColor: Colors.white,
+                child: Image.asset('asset/images/bag-2.png')),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 4.0),
             child: CircleAvatar(

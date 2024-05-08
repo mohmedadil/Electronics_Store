@@ -20,7 +20,8 @@ class _FavouriteViewState extends State<FavouriteView> {
   @override
   void initState() {
     super.initState();
-    shoes = BlocProvider.of<GetfavouriteCubit>(context).getFavourite();
+    BlocProvider.of<GetfavouriteCubit>(context).getFavourite();
+    shoes = BlocProvider.of<GetfavouriteCubit>(context).item;
   }
 
   @override

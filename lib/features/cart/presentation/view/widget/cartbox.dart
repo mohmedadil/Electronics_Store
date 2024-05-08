@@ -1,6 +1,9 @@
+import 'package:Electronic_Store/core/model/shoes_model.dart';
+import 'package:Electronic_Store/features/cart/presentation/view_model/cubit/getcart_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:Electronic_Store/constat.dart';
 import 'package:Electronic_Store/core/utlis/styles.dart';
@@ -8,7 +11,9 @@ import 'package:Electronic_Store/core/utlis/styles.dart';
 class CartBox extends StatefulWidget {
   const CartBox({
     super.key,
+    required this.item,
   });
+  final ItemModel item;
 
   @override
   State<CartBox> createState() => _CartBoxState();
@@ -17,6 +22,7 @@ class CartBox extends StatefulWidget {
 class _CartBoxState extends State<CartBox> {
   int count = 1;
 
+  _CartBoxState();
   @override
   Widget build(BuildContext context) {
     return Slidable(
@@ -31,6 +37,13 @@ class _CartBoxState extends State<CartBox> {
                   onTap: () {
                     if (count > 0) {
                       count++;
+                      print(BlocProvider.of<GetcartCubit>(context).count);
+                      BlocProvider.of<GetcartCubit>(context)
+                          .add(widget.item.price as int);
+
+                      print(BlocProvider.of<GetcartCubit>(context).count);
+
+                      BlocProvider.of<GetcartCubit>(context).refresh();
                       setState(() {});
                     }
                   },
@@ -50,6 +63,9 @@ class _CartBoxState extends State<CartBox> {
                   onTap: () {
                     if (count > 1) {
                       count--;
+                      BlocProvider.of<GetcartCubit>(context)
+                          .add(-widget.item.price as int);
+                      BlocProvider.of<GetcartCubit>(context).refresh();
                       setState(() {});
                     }
                   },
@@ -67,7 +83,11 @@ class _CartBoxState extends State<CartBox> {
         motion: const StretchMotion(),
         children: [
           SlidableAction(
-            onPressed: (context) {},
+            onPressed: (context) {
+              widget.item.cart = false;
+              widget.item.delete();
+              BlocProvider.of<GetcartCubit>(context).getCart();
+            },
             icon: Icons.delete,
             backgroundColor: const Color(0xffFF1900),
             flex: 1,
@@ -88,19 +108,27 @@ class _CartBoxState extends State<CartBox> {
               decoration: BoxDecoration(
                   color: kBackgroundColor,
                   borderRadius: BorderRadius.circular(8)),
-              child: Image.asset('asset/images/nikeblue.png')),
+              child: Image.network(widget.item.image ?? '')),
           const SizedBox(
             width: 30,
           ),
-          const Column(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Nike Club Max',
-                style: Styles.textStyle16,
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .4,
+                child: Text(
+                  widget.item.title ?? '',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: Styles.textStyle16,
+                ),
+              ),
+              SizedBox(
+                height: 10,
               ),
               Text(
-                '584.95',
+                '\$ ${widget.item.price}',
               )
             ],
           )

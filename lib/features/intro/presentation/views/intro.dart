@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -37,7 +38,7 @@ class _IntroViewState extends State<IntroView> {
           ],
         ),
         Container(
-          alignment: const Alignment(0, 0.75),
+          alignment: const Alignment(0, 0.65),
           child: SmoothPageIndicator(
               controller: controller,
               count: 3,
@@ -47,8 +48,12 @@ class _IntroViewState extends State<IntroView> {
                   dotColor: Color(0xffFFB21A),
                   activeDotColor: Colors.white)),
         ),
-        ButtonActions(
-            lastPage: lastPage, controller: controller, firstPage: firstPage),
+        Padding(
+          padding: EdgeInsets.only(
+              bottom: MediaQuery.of(context).size.height * 0.03),
+          child: ButtonActions(
+              lastPage: lastPage, controller: controller, firstPage: firstPage),
+        ),
       ],
     ));
   }

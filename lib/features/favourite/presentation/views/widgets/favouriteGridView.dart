@@ -37,7 +37,7 @@ class _FavouriteGridViewState extends State<FavouriteGridView> {
                   mainAxisSpacing: 10,
                   crossAxisCount: 2,
                   childAspectRatio: 2.9 / 3.8),
-              itemCount: widget.shoes.length,
+              itemCount: state.items.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                     onTap: () {
@@ -45,7 +45,7 @@ class _FavouriteGridViewState extends State<FavouriteGridView> {
                           .push(Routers.kdetials, extra: widget.shoes[index]);
                     },
                     child: FavouriteBox(
-                      item: widget.shoes[index],
+                      item: state.items[index],
                     ));
               },
             );

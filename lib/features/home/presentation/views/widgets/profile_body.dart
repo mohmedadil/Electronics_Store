@@ -25,76 +25,68 @@ class AccountProfileBody extends StatelessWidget {
               onPressed: () {},
             )),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const SizedBox(
-            height: 40,
-          ),
-          const Center(
-            child: CircleAvatar(
-              backgroundImage: AssetImage('asset/images/test.png'),
-              radius: 40,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            const SizedBox(
+              height: 40,
             ),
-          ),
-          const SizedBox(
-            height: 22,
-          ),
-          Text(
-            user.user?.displayName ?? '',
-            style: TextStyle(
-                fontSize: 16,
-                color: Color(0xff707B81),
-                fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          Details_Field(text: user.user?.displayName ?? ''),
-          const SizedBox(
-            height: 12,
-          ),
-          Text(
-            user.user?.email ?? '',
-            style: TextStyle(
-                fontSize: 16,
-                color: Color(0xff707B81),
-                fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          Details_Field(text: user.user?.email ?? ''),
-          const SizedBox(
-            height: 30,
-          ),
-          const Text(
-            'Password',
-            style: TextStyle(
-                fontSize: 16,
-                color: Color(0xff707B81),
-                fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          const Details_Field(text: '**********'),
-          const Align(
-            alignment: FractionalOffset.centerRight,
-            child: Text(
-              'Recovery password',
+            const Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('asset/images/test.png'),
+                radius: 40,
+              ),
+            ),
+            const SizedBox(
+              height: 22,
+            ),
+            Text(
+              user.user?.displayName ?? '',
               style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 16,
                   color: Color(0xff707B81),
-                  fontWeight: FontWeight.w400),
-              textAlign: TextAlign.left,
+                  fontWeight: FontWeight.w500),
             ),
-          ),
-          const SizedBox(
-            height: 40,
-          ),
-          ButtonAction(color: Color(0xff0D6EFD), text: 'Save Now'),
-        ]),
+            const SizedBox(
+              height: 12,
+            ),
+            Details_Field(text: user.user?.displayName ?? ''),
+            const SizedBox(
+              height: 12,
+            ),
+            Text(
+              user.user?.email ?? '',
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Color(0xff707B81),
+                  fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            Details_Field(text: user.user?.email ?? ''),
+            const SizedBox(
+              height: 30,
+            ),
+            const Text(
+              'Password',
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Color(0xff707B81),
+                  fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            const Details_Field(text: '**********'),
+            const SizedBox(
+              height: 40,
+            ),
+            ButtonAction(color: Color(0xff0D6EFD), text: 'Edit Now'),
+          ]),
+        ),
       ),
     );
   }

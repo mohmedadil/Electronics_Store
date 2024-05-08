@@ -1,3 +1,5 @@
+import 'package:Electronic_Store/features/cart/presentation/view_model/cubit/getcart_cubit.dart';
+import 'package:Electronic_Store/features/home/presentation/view_model/add_cart/add_cart_cubit.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +23,9 @@ void main() async {
   );
   await Hive.initFlutter();
   Hive.registerAdapter(ItemModelAdapter());
-  await Hive.openBox<ItemModel>('shoesbox');
+  await Hive.openBox<ItemModel>('favouritebox');
+  await Hive.openBox<ItemModel>('cartbox');
+
   runApp(
     DevicePreview(
       enabled: true,
@@ -49,9 +53,16 @@ class MyApp extends StatelessWidget {
             BlocProvider(
               create: (context) => AddfavouriteCubit(),
             ),
+             BlocProvider(
+              create: (context) => AddCartCubit(),
+            ),
             BlocProvider(
               create: (context) => GetfavouriteCubit(),
             ),
+             BlocProvider(
+              create: (context) => GetcartCubit(),
+            ),
+           
           ],
           child: MaterialApp.router(
             useInheritedMediaQuery: true,

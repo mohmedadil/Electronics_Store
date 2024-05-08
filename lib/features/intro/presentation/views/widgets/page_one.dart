@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -49,16 +50,15 @@ class PageOne extends StatelessWidget {
                     child: Container(
                         child: Image.asset('asset/images/Vector.png')),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Image.asset('asset/images/image 3.png'),
-                  ),
                 ],
               ),
               //  Padding(
               //   padding: const EdgeInsets.only(left: 20.0, right: 20, bottom: 20),
               //   child: ActionButton(firstPage: true, onPressed: onPressed,),
               // ),
+              Spacer(),
+              Image.asset('asset/images/laptop.png'),
+              Spacer()
             ],
           ),
         ),

@@ -7,11 +7,10 @@ part 'getfavourite_state.dart';
 
 class GetfavouriteCubit extends Cubit<GetfavouriteState> {
   GetfavouriteCubit() : super(GetfavouriteInitial());
-  late List<ItemModel> shoes;
-  List<ItemModel> getFavourite() {
-    var FavouriteBox = Hive.box<ItemModel>('shoesbox');
-    emit(GetfavouriteSuccess());
-
-    return FavouriteBox.values.toList();
+  late List<ItemModel> item;
+  getFavourite() {
+    var FavouriteBox = Hive.box<ItemModel>('favouritebox');
+    item = FavouriteBox.values.toList();
+    emit(GetfavouriteSuccess(items: FavouriteBox.values.toList()));
   }
 }

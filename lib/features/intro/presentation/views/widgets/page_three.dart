@@ -33,16 +33,20 @@ class PageThree extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Container(
-                      width: 339,
-                      height: 339,
-                      child: AspectRatio(
-                        aspectRatio: 1 / 2,
-                        child: Image.asset(
-                          'asset/images/Aire Jordan Nike.png',
-                          fit: BoxFit.fill,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height * .4,
+                          child: AspectRatio(
+                            aspectRatio: 1,
+                            child: Image.asset(
+                              'asset/images/logo.webp',
+                              fit: BoxFit.fill,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 250, left: 70),
@@ -60,11 +64,11 @@ class PageThree extends StatelessWidget {
                       color: Colors.white,
                       fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  'There Are Many Beautiful And Attractive \n Plants To Your Room',
+                const Text(
+                  'There Are Many Beautiful And Attractive \n Electronics To Your Room',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 16,

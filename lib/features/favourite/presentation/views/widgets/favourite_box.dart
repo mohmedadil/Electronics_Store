@@ -75,7 +75,7 @@ class FavouriteBox extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          item.price.toString(),
+                          "\$ ${item.price.toString()}",
                           style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,

@@ -21,6 +21,8 @@ class ItemModel extends HiveObject {
   String? color;
   @HiveField(8)
   bool isFavourite = false;
+   @HiveField(9)
+  bool cart = false;
 
   ItemModel({this.id, this.title, this.price, this.description, this.image,this.brand,this.category,this.color});
 
