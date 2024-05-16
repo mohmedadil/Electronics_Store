@@ -27,10 +27,11 @@ void main() async {
   await Hive.openBox<ItemModel>('cartbox');
 
   runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => MyApp(), // Wrap your app
-    ),
+    // DevicePreview(
+    //   enabled: true,
+    //   builder: (context) =>
+       MyApp(), 
+    // ),
   );
 }
 
@@ -65,9 +66,9 @@ class MyApp extends StatelessWidget {
            
           ],
           child: MaterialApp.router(
-            useInheritedMediaQuery: true,
-            locale: DevicePreview.locale(context),
-            builder: DevicePreview.appBuilder,
+            // useInheritedMediaQuery: true,
+            // locale: DevicePreview.locale(context),
+            // builder: DevicePreview.appBuilder,
             routerConfig: Routers.router,
             debugShowCheckedModeBanner: false,
             theme: ThemeData(fontFamily: 'Raleway'),
