@@ -66,28 +66,3 @@ class PageOne extends StatelessWidget {
     );
   }
 }
-
-class ActionButton extends StatelessWidget {
-  const ActionButton({
-    super.key,
-    required this.firstPage,
-    required this.onPressed,
-  });
-  final bool firstPage;
-  final void Function()? onPressed;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), color: Color(0xffECECEC)),
-        width: double.infinity,
-        child: TextButton(
-            onPressed: onPressed,
-            child: firstPage
-                ? Text(
-                    'Get Started',
-                    style: TextStyle(color: Colors.black),
-                  )
-                : Text('Next', style: TextStyle(color: Colors.black))));
-  }
-}

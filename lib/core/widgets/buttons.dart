@@ -26,9 +26,9 @@ class ButtonActions extends StatelessWidget {
           child: GestureDetector(
             onTap: lastPage
                 ? () async {
-                    final SharedPreferences prefs =
-                        await SharedPreferences.getInstance();
-                    await prefs.setBool('skipIntro', true);
+                    // final SharedPreferences prefs =
+                    //     await SharedPreferences.getInstance();
+                    // await prefs.setBool('skipIntro', true);
 
                     GoRouter.of(context).push(Routers.kLogin);
                   }

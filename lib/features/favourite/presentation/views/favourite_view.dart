@@ -31,6 +31,7 @@ class _FavouriteViewState extends State<FavouriteView> {
       child: Scaffold(
         backgroundColor: kBackgroundColor,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: kBackgroundColor,
           title: const Text(
             'Favourite',

@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:Electronic_Store/core/utlis/routes.dart';
 import 'package:Electronic_Store/core/widgets/buttons.dart';
 import 'package:Electronic_Store/features/intro/presentation/views/widgets/page_one.dart';
 import 'package:Electronic_Store/features/intro/presentation/views/widgets/page_three.dart';

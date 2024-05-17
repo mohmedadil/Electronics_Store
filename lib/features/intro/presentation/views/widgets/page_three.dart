@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:Electronic_Store/features/intro/presentation/views/widgets/page_one.dart';
 
 class PageThree extends StatelessWidget {
   const PageThree({
@@ -77,10 +76,7 @@ class PageThree extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
-                //  Padding(
-                //   padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                //   child: ActionButton(firstPage: false,onPressed: onPressed,),
-                // )
+              
               ],
             ),
           ),
