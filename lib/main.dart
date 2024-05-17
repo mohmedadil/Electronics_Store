@@ -1,6 +1,5 @@
 import 'package:Electronic_Store/features/cart/presentation/view_model/cubit/getcart_cubit.dart';
 import 'package:Electronic_Store/features/home/presentation/view_model/add_cart/add_cart_cubit.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -41,9 +40,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
-      minTextAdapt: true,
-      splitScreenMode: true,
+      // designSize: const Size(360, 690),
+      // minTextAdapt: true,
+      // splitScreenMode: true,
       builder: (context, child) => ChangeNotifierProvider(
         create: (context) => Mystate(),
         child: MultiBlocProvider(

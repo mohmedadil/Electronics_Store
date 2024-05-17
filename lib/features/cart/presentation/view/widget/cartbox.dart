@@ -37,12 +37,8 @@ class _CartBoxState extends State<CartBox> {
                   onTap: () {
                     if (count > 0) {
                       count++;
-                      print(BlocProvider.of<GetcartCubit>(context).count);
                       BlocProvider.of<GetcartCubit>(context)
                           .add(widget.item.price as int);
-
-                      print(BlocProvider.of<GetcartCubit>(context).count);
-
                       BlocProvider.of<GetcartCubit>(context).refresh();
                       setState(() {});
                     }

@@ -81,7 +81,7 @@ class FavouriteBox extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                               color: Color(0xff6A6A6A)),
                         ),
-                        Row(
+                       const Row(
                           children: [
                             CircleAvatar(
                               radius: 8,

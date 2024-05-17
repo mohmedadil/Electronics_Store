@@ -21,6 +21,11 @@ class GetcartCubit extends Cubit<GetcartState> {
       count += x;
     }
 
+    for (int i = 0; i < item.length; i++) {
+      int x = item[i].price as int;
+      count = count + x;
+    }
+
     emit(GetcartSuccess(items: item));
   }
 
